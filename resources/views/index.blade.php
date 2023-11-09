@@ -1,8 +1,13 @@
-<div>
-  Hello I'm a blade template 
-</div>
+<h1>
+  The List of Tasks
+</h1>
 
-{{-- variable will only be displayed if it is set --}}
-@isset($name) 
-  <h1>Welcome, {{ $name }}</h1>
-@endisset
+<div>
+    @forelse ($tasks as $task)
+      <div>
+        <a href="{{ route('tasks.show', ['id' => $task->id]) }}">{{ $task->title }}</a>  
+      </div>
+    @empty
+      <p>There are no tasks!</p>
+    @endforelse
+</div>
