@@ -3,6 +3,7 @@
 @section('title', 'Add Task')
 
 @section('content')
+  {{-- {{ $errors }} => displays all validation errors in the form --}}
   <form action="{{ route('tasks.store') }}" method="POST">
     @csrf
     <div>
