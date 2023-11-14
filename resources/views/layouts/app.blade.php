@@ -15,10 +15,25 @@
     .link {
       @apply font-medium text-gray-700 underline decoration-pink-500
     }
+
+    .error {
+      @apply text-red-500 text-sm
+    }
+
+    label{
+      @apply block uppercase text-slate-700 mb-2
+    }
+    input, textarea {
+      @apply shadow-sm appearance-none border w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none
+    }
+    /* 
+      appearance-none = removes all default appearance of element
+      border w-full = makes the element take the whole available width
+      leading-tight = makes the line-height of the element to be a little higher
+    */
   </style>
   {{-- blade-formatter-enable --}}
 
-  @yield('styles')
 </head>
 <body class="container mx-auto mt-10 mb-10 max-w-lg">
   <h1 class="text-2xl">@yield('title')</h1>
