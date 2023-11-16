@@ -18,6 +18,13 @@ return new class extends Migration
             $table->unsignedTinyInteger('rating');
 
             $table->timestamps();
+
+            // $table->unsignedBigInteger('book_id'); // foreign key
+            // $table ->foreign('book_id')->references('id')->on('books')
+            //     ->onDelete('cascade');
+
+            $table->foreignId('book_id')->constrained()
+                ->cascadeOnDelete();
         });
     }
 
