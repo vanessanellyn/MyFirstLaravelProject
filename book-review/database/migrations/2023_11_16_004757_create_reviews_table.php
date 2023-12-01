@@ -11,21 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
+        if(!Schema::hasTable('reviews'))
+        {
+            Schema::create('reviews', function (Blueprint $table) {
+                $table->id();
 
-            $table->text('review');
-            $table->unsignedTinyInteger('rating');
+                $table->text('review');
+                $table->unsignedTinyInteger('rating');
 
-            $table->timestamps();
+                $table->timestamps();
 
-            // $table->unsignedBigInteger('book_id'); // foreign key
-            // $table ->foreign('book_id')->references('id')->on('books')
-            //     ->onDelete('cascade');
+                // $table->unsignedBigInteger('book_id'); // foreign key
+                // $table ->foreign('book_id')->references('id')->on('books')
+                //     ->onDelete('cascade');
 
-            $table->foreignId('book_id')->constrained()
-                ->cascadeOnDelete();
-        });
+                $table->foreignId('book_id')->constrained()
+                    ->cascadeOnDelete();
+            });
+        }
     }
 
     /**
